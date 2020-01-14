@@ -7,3 +7,26 @@
 //
 
 import Foundation
+
+struct Post {
+    
+    struct Model: Codable {
+        var userId: Int
+        var id: Int
+        var title: String
+        var body: String
+    }
+    
+    struct ViewModel {
+        var title: String
+        var body: String
+    }
+    
+    struct Request {
+        var userId: Int
+    }
+    
+    struct Response {
+        var posts: [Post.Model]
+    }
+}

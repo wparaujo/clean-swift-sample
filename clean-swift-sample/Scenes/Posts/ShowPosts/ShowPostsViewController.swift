@@ -8,23 +8,65 @@
 
 import UIKit
 
-class ShowPostsViewController: UIViewController {
+protocol ShowPostsViewControllerInput: AnyObject {
+    func display(viewModels: [Post.ViewModel])
+}
+
+protocol ShowPostsViewControllerOutput {
+    func request(_ request: Post.Request)
+}
+
+class ShowPostsViewController: UITableViewController {
+    
+    var output: ShowPostsViewControllerOutput!
+    var router: ShowPostsRouter!
+    var postsTableView = ShowPostsTableView()
+    var posts: [Post.ViewModel]?
+    
+    override func loadView() {
+        self.tableView = postsTableView
+        ShowPostsConfigurator().configure(fromViewController: self)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.tableView.register(ShowPostTableViewCell.self, forCellReuseIdentifier: "cell")
+        getPosts()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func getPosts() {
+        let request = Post.Request(userId: 1)
+        output.request(request)
     }
-    */
+    
+    // DataSource
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let countPosts = self.posts?.count else { return 5 }
+        return countPosts
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let postCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ShowPostTableViewCell
+        guard let cell = postCell else { return UITableViewCell() }
+        postCell?.titleLabel.text = self.posts?[indexPath.item].title
+        postCell?.bodyLabel.text = self.posts?[indexPath.item].body
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(70)
+    }
 
+}
+
+extension ShowPostsViewController: ShowPostsViewControllerInput {
+    func display(viewModels: [Post.ViewModel]) {
+        self.posts = viewModels
+        self.tableView.reloadData()
+    }
+    
 }
