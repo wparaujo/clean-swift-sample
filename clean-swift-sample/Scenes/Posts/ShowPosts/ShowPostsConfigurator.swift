@@ -10,7 +10,7 @@ import Foundation
 
 class ShowPostsConfigurator {
     
-    func configure(fromViewController viewController: ShowPostsViewController) {
+    func configure(fromViewController viewController: ShowPostsTableViewController) {
         let presenter = ShowPostsPresenter()
         presenter.output = viewController
         

@@ -16,7 +16,7 @@ protocol ShowPostsViewControllerOutput {
     func request(_ request: Post.Request)
 }
 
-class ShowPostsViewController: UITableViewController {
+class ShowPostsTableViewController: UITableViewController {
     
     var output: ShowPostsViewControllerOutput!
     var router: ShowPostsRouter!
@@ -60,10 +60,14 @@ class ShowPostsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(70)
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+    }
 
 }
 
-extension ShowPostsViewController: ShowPostsViewControllerInput {
+extension ShowPostsTableViewController: ShowPostsViewControllerInput {
     func display(viewModels: [Post.ViewModel]) {
         self.posts = viewModels
         self.tableView.reloadData()

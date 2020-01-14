@@ -52,14 +52,14 @@ extension ShowPostTableViewCell: ViewCode {
         titleLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.95)
-            make.leadingMargin.trailingMargin.equalTo(self.snp.leadingMargin)
+//            make.leadingMargin.trailingMargin.equalTo(self.snp.leadingMargin)
             make.height.equalToSuperview().multipliedBy(0.5)
         }
         
         bodyLabel.snp.makeConstraints { (make) in
             make.bottom.centerX.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.95)
-            make.leadingMargin.trailingMargin.equalTo(self.snp.leadingMargin)
+//            make.leadingMargin.trailingMargin.equalTo(self.snp.leadingMargin)
             make.top.equalTo(titleLabel.snp.bottom)
         }
     }

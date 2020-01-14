@@ -29,9 +29,9 @@ extension ShowPostsTableView: ViewCode {
     }
     
     func setupConstraints() {
-        self.snp.makeConstraints { (make) in
-            make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
-        }
+//        self.snp.makeConstraints { (make) in
+//            make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
+//        }
     }
     
     func setupAditionalConfigurations() {
