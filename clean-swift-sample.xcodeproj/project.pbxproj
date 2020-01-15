@@ -260,7 +260,6 @@
 				048E6A0D23CCF5D70010BA67 /* Sources */,
 				048E6A0E23CCF5D70010BA67 /* Frameworks */,
 				048E6A0F23CCF5D70010BA67 /* Resources */,
-				E4207107E0A025A0D4DA2755 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -460,23 +459,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-clean-swift-sample/Pods-clean-swift-sample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E4207107E0A025A0D4DA2755 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-clean-swift-sampleTests/Pods-clean-swift-sampleTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-clean-swift-sampleTests/Pods-clean-swift-sampleTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-clean-swift-sampleTests/Pods-clean-swift-sampleTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
