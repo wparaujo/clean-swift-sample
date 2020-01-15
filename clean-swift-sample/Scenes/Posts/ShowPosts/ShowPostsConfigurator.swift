@@ -14,6 +14,11 @@ class ShowPostsConfigurator {
         let presenter = ShowPostsPresenter()
         presenter.output = viewController
         
+        let router = ShowPostsRouter()
+        viewController.router = router
+        router.viewController = viewController
+//        router. = PostDetailViewController()
+        
         let interactor = ShowPostsInteractor()
         interactor.output = presenter
         interactor.worker = ShowPostsWorker()

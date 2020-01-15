@@ -8,6 +8,17 @@
 
 import Foundation
 
-class ShowPostsRouter {
+protocol ShowPostsRouterInput {
+    func goToPostDetail(withSelectedPost post: Post.ViewModel)
+}
+
+class ShowPostsRouter: ShowPostsRouterInput {
     
+    weak var viewController: ShowPostsTableViewController!
+    
+    func goToPostDetail(withSelectedPost post: Post.ViewModel) {
+        let postDetailViewController = PostDetailViewController()
+        postDetailViewController.post = post
+        viewController.navigationController?.pushViewController(postDetailViewController, animated: true)
+    }
 }

@@ -62,7 +62,7 @@ class ShowPostsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+        router.goToPostDetail(withSelectedPost: (self.posts?[indexPath.row])!)
     }
 
 }

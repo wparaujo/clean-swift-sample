@@ -8,12 +8,20 @@
 
 import UIKit
 
-class PostDetailViewController: UITableViewController {
+class PostDetailViewController: UIViewController {
+    
+    var post: Post.ViewModel?
+    var postDetailView = PostDetailView()
     
     override func loadView() {
-        let view = UIView()
-        view.backgroundColor = .red
-        self.view = view
+        self.view = postDetailView
+    }
+    
+    override func viewDidLoad() {
+        guard let post = self.post else { return }
+        print(post)
+        postDetailView.titleLabel.text = post.title
+        postDetailView.bodyLabel.text = post.body
     }
     
 }
